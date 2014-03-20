@@ -1,0 +1,38 @@
+<html ng-app='baseApp'>
+	<head>
+		<title>shopping cart</title>
+		
+	</head>
+	<body>
+		<div ng-controller='shoppingcartCtrl'>
+			<h1>Your order</h1>
+			<div ng-repeat='item in items'>
+				<span ng-bind='item.title | uppercase'></span>	
+				<input ng-model='item.quantity'>
+				<span ng-bind='item.price | currency'></span>
+				<span ng-bind='item.price * item.quantity | currency'></span>
+				<button ng-click='remove($index)'>Remove</button>
+			</div>
+
+			<div>
+				<label>Add item:</label>
+				<input ng-model="title">
+				<input ng-model="quantity">
+				<input ng-model="price">
+				<button ng-click='add(title, quantity, price)'>Add</button>
+			</div>
+
+		</div>	
+		
+		<form ng-controller='StartUpCtrl'>
+			Starting: <input ng-change='computeNeeded()' ng-model='funding.startingEstimate'>			
+			Recommendation: {{needed}}
+		</form>
+		
+
+		<script type="text/javascript" src="../lib/angular.js"></script>
+		<script type="text/javascript" src="../js/base.app.js"></script>
+		<script type="text/javascript" src="../js/shoppingcart.js"></script>
+		<script type="text/javascript" src="../js/Items.js"></script>
+	</body>
+</html>

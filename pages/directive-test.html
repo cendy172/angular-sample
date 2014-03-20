@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="baseApp">
+<head>
+	<title>Test Directive</title>
+</head>
+<body ng-controller="focusCtrl">
+
+	<form ng-submit="submit()">
+		<button submit-focus ng-click="submit()">Click</button>
+	</form>
+
+	<span ng-bind="submitMessage"></span>
+
+	<script type="text/javascript" src="../lib/angular.js"></script>
+	<script type="text/javascript" src="../js/base.app.js"></script>
+	<script type="text/javascript" src="../js/test.directive.js"></script>
+</body>
+</html>
