@@ -1,25 +1,32 @@
 <html ng-app='baseApp'>
 	<head>
 		<title>test form page</title>
-		
 	</head>
 	<body ng-controller='formController' ng-init='init()'>
+		<h1>Sign Up</h1>	
+		<span ng-bind='message'></span>
+		<form name="addUserForm" ng-submit='addUser()'>
+			<div>
+				<label>First name: </label>
+				<input ng-model="user.first" required>
+			</div>
+			<div>
+				<label>Last name: </label>
+				<input ng-model="user.last" required>
+			</div>
 
-		<form ng-submit='submit()'>
-			<input type="text" ng-model='username'></input>
-			<br/>
-			<input type="password" ng-model='password'></input>
-			<button ng-click='clear()'>clear</button>
-			<br/>
-			<button>submit</button>
+			<div>
+				<label>Email: </label>
+				<input ng-model="user.email" required>
+			</div>
+
+			<div>
+				<label>Age: </label>
+				<input ng-model="user.age" type="number" ng-maxlength='3' ng-minlength='1' required>
+			</div>
+
+			<button ng-disabled='!addUserForm.$valid' ng-click='addUser()'>submit</button>
 		</form>
-
-		<div>
-			<label>check rego number</label>
-			<br/>
-			<input type="text" ng-model='regoNumber'></input>
-		</div>
-
 
 		<script type="text/javascript" src="../lib/angular.js"></script>
 		<script type="text/javascript" src="../js/base.app.js"></script>
